@@ -5,10 +5,10 @@ FROM ubuntu:24.04 AS base
 RUN apt-get update && apt-get install -y openjdk-17-jdk \
     && rm -rf /var/lib/apt/lists/*
 
-LABEL authors="indiagator"
+LABEL authors="mkb"
 
 # Copy the JAR file into the container
-COPY target/eurekaserverboot3-prod-1.jar app.jar
+COPY target/eurekaserver-prod-1.jar eurekaserver.jar
 
 # Expose the port the app runs on
 EXPOSE 8761:8761
@@ -20,4 +20,4 @@ EXPOSE 8761:8761
 
 
 # Run the application
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Dspring.profiles.active=dev", "-jar", "eurekaserver.jar"]
