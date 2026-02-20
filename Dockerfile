@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y openjdk-17-jdk \
 LABEL authors="mkb"
 
 # Copy the JAR file into the container
-COPY target/eurekaserver-prod-1.jar eurekaserver.jar
+COPY target/eurekaserver-dev.jar eurekaserver.jar
 
 # Expose the port the app runs on
 EXPOSE 8761:8761
